@@ -1,0 +1,30 @@
+{
+  "name": "ot-wrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "configure": "cmake-js configure -m -C",
+    "reconfigure": "cmake-js reconfigure -m -C",
+    "build-node": "cmake-js build -m -C -p $(nproc) --target ot-wrapper-node",
+    "build-go": "cmake-js build -m -C -p $(nproc) --target libOtGo"
+  },
+  "cmake-js": {
+    "runtime": "node",
+    "runtimeVersion": "16.14.2"
+  },
+  "author": {
+    "email": "3541904+whyamiroot@users.noreply.github.com",
+    "name": "whyamiroot",
+    "url": "https://github.com/whyamiroot"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.6.2",
+    "bindings": "^1.5.0",
+    "cmake-js": "^7.2.1",
+    "node-addon-api": "^7.0.0"
+  }
+}

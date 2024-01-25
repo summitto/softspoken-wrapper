@@ -1,0 +1,22 @@
+diff --git a/libOTe/TwoChooseOne/OTExtInterface.cpp b/libOTe/TwoChooseOne/OTExtInterface.cpp
+index 866a59c..ec90ec2 100644
+--- a/libOTe/TwoChooseOne/OTExtInterface.cpp
++++ b/libOTe/TwoChooseOne/OTExtInterface.cpp
+@@ -103,7 +103,7 @@ namespace osuCrypto
+         Socket& chl)
+     {
+         MC_BEGIN(task<>,&, recvMessages,
+-            temp = std::vector<std::array<block, 2>>(recvMessages.size())
++            temp = AlignedVector<std::array<block, 2>>(recvMessages.size())
+         );
+         MC_AWAIT(receive(choices, recvMessages, prng, chl));
+         MC_AWAIT(chl.recv(temp));
+@@ -147,7 +147,7 @@ namespace osuCrypto
+     {
+         MC_BEGIN(task<>,
+             this, messages, &prng, &chl,
+-            temp = std::vector<std::array<block, 2>>(messages.size())
++            temp = AlignedVector<std::array<block, 2>>(messages.size())
+         );
+         MC_AWAIT(send(temp, prng, chl));
+ 
